@@ -1,0 +1,23 @@
+#
+# Touchscreen driver configuration
+#
+	
+config TOUCHSCREEN_MTK_ILITEK_SPI
+		bool "ILITEK_SPI"
+		depends on SPI
+		help
+			Say Y here if you have a Novatek ILITEK Panel
+			to the host processor over SPI
+
+			If unsure, say N.
+
+#Antaiui <AI_BSP_CTP> <hehl> <2020-5-28> add gesture  start
+config AI_BSP_GESTURE_SWITCH
+		bool "ILITEK_SPI"
+		depends on SPI
+		help
+			Say Y here if you have a Novatek ILITEK Panel
+			to the host processor over SPI
+
+			If unsure, say N.
+#Antaiui <AI_BSP_CTP> <hehl> <2020-5-28> add gesture  end

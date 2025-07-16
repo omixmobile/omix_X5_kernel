@@ -1,0 +1,87 @@
+ilitek_touch.c:541:	if (idev->chip->core_ver >= CORE_VER_1420)
+ilitek_touch.c:561:	if (idev->info_from_hex || (idev->chip->core_ver >= CORE_VER_1410))
+ilitek_hostdl.c:116:	idev->chip->hd_dma_check_crc_off();
+ilitek_hostdl.c:380:	if (!idev->info_from_hex || (idev->chip->core_ver < CORE_VER_1410))
+ilitek_hostdl.c:496:	idev->trans_xy = (idev->chip->core_ver >= CORE_VER_1430) ? idev->fw_info[0] : OFF;
+ilitek_flash.c:410:	if (write_len > idev->chip->max_count) {
+ilitek_flash.c:412:			write_len, idev->chip->max_count);
+ilitek_flash.c:680:	ipio_info("New FW ver = 0x%x, Current FW ver = 0x%x\n", tfd.new_fw_cb, idev->chip->fw_ver);
+ilitek_flash.c:681:	if (tfd.new_fw_cb != idev->chip->fw_ver) {
+ilitek_flash.c:944:	idev->trans_xy = (idev->chip->core_ver >= CORE_VER_1430) ? idev->fw_info[0] : OFF;
+ilitek_node.c:1824:		szBuf[3] = idev->chip->fw_ver & 0xFF;
+ilitek_node.c:1825:		szBuf[2] = (idev->chip->fw_ver >> 8) & 0xFF;
+ilitek_node.c:1826:		szBuf[1] = (idev->chip->fw_ver >> 16) & 0xFF;
+ilitek_node.c:1827:		szBuf[0] = idev->chip->fw_ver >> 24;
+ilitek_node.c:1851:		szBuf[3] = idev->chip->core_ver & 0xFF;
+ilitek_node.c:1852:		szBuf[2] = (idev->chip->core_ver >> 8) & 0xFF;
+ilitek_node.c:1853:		szBuf[1] = (idev->chip->core_ver >> 16) & 0xFF;
+ilitek_node.c:1854:		szBuf[0] = idev->chip->core_ver >> 24;
+ilitek_node.c:1874:		id_to_user[0] = idev->chip->pid;
+ilitek_node.c:1875:		id_to_user[1] = idev->chip->otp_id;
+ilitek_node.c:1876:		id_to_user[2] = idev->chip->ana_id;
+ilitek_spi.c:435:		pid_cmd[2] = ((idev->chip->pid_addr & 0x000000FF) >> 0);
+ilitek_spi.c:436:		pid_cmd[3] = ((idev->chip->pid_addr & 0x0000FF00) >> 8);
+ilitek_spi.c:437:		pid_cmd[4] = ((idev->chip->pid_addr & 0x00FF0000) >> 16);
+ilitek_mp.c:3092:	core_mp.chip_pid = idev->chip->pid;
+ilitek_mp.c:3093:	core_mp.chip_id = idev->chip->id;
+ilitek_mp.c:3094:	core_mp.chip_type = idev->chip->type;
+ilitek_mp.c:3095:	core_mp.chip_ver = idev->chip->ver;
+ilitek_mp.c:3096:	core_mp.fw_ver = idev->chip->fw_ver;
+ilitek_mp.c:3098:	core_mp.core_ver = idev->chip->core_ver;
+ilitek_mp.c:3100:	core_mp.no_bk_shift = idev->chip->no_bk_shift;
+ilitek_ic.c:86:	idev->chip->pid = pid;
+ilitek_ic.c:89:		idev->chip->reset_key = 0x00019881;
+ilitek_ic.c:90:		idev->chip->wtd_key = 0x9881;
+ilitek_ic.c:91:		idev->chip->hd_dma_check_crc_off = firmware_hd_dma_crc_off_ili9881;
+ilitek_ic.c:97:		if (idev->spi_speed != NULL && idev->chip->spi_speed_ctrl) {
+ilitek_ic.c:99:			idev->chip->spi_speed_ctrl = DISABLE;
+ilitek_ic.c:103:			idev->chip->no_bk_shift = RAWDATA_NO_BK_SHIFT_9881F;
+ilitek_ic.c:105:			idev->chip->no_bk_shift = RAWDATA_NO_BK_SHIFT_9881H;
+ilitek_ic.c:107:		idev->chip->reset_key = 0x00019878;
+ilitek_ic.c:108:		idev->chip->wtd_key = 0x9878;
+ilitek_ic.c:109:		idev->chip->hd_dma_check_crc_off = firmware_hd_dma_crc_off_ili7807;
+ilitek_ic.c:110:		idev->chip->no_bk_shift = RAWDATA_NO_BK_SHIFT_9881H;
+ilitek_ic.c:113:			idev->chip->spi_speed_ctrl = DISABLE;
+ilitek_ic.c:119:	idev->chip->max_count = 0x1FFFF;
+ilitek_ic.c:238:			if (idev->spi_speed != NULL && idev->chip->spi_speed_ctrl)
+ilitek_ic.c:240:			ipio_info("chip->pid = 0X%x\n", idev->chip->pid_addr);
+ilitek_ic.c:242:			if (ilitek_ice_mode_read(idev->chip->pid_addr, &pid, sizeof(u32)) < 0)
+ilitek_ic.c:311:	if (idev->chip->wdt_addr <= 0 || idev->chip->id <= 0) {
+ilitek_ic.c:323:		if (ilitek_ice_mode_read(idev->chip->wdt_addr, &ret, sizeof(u8)) < 0) {
+ilitek_ic.c:331:	ipio_info("%s WDT, key = %x\n", (enable ? "Enable" : "Disable"), idev->chip->wtd_key);
+ilitek_ic.c:334:		if (ilitek_ice_mode_write(idev->chip->wdt_addr, 1, 1) < 0)
+ilitek_ic.c:339:		if (ilitek_ice_mode_write(idev->chip->wdt_addr, (idev->chip->wtd_key & 0xff), 1) < 0)
+ilitek_ic.c:341:		if (ilitek_ice_mode_write(idev->chip->wdt_addr, (idev->chip->wtd_key >> 8), 1) < 0)
+ilitek_ic.c:359:			if (ilitek_ice_mode_write(idev->chip->wdt_addr, 0x00, 1) < 0)
+ilitek_ic.c:360:				ipio_err("Write 0x0 at %x\n", idev->chip->wdt_addr);
+ilitek_ic.c:361:			if (ilitek_ice_mode_write(idev->chip->wdt_addr, 0x98, 1) < 0)
+ilitek_ic.c:362:				ipio_err("Write 0x98 at %x\n", idev->chip->wdt_addr);
+ilitek_ic.c:377:		if (ilitek_ice_mode_write(idev->chip->wdt_addr, 0, 1) < 0)
+ilitek_ic.c:458:		idev->chip->reset_key, idev->rst_edge_delay);
+ilitek_ic.c:460:	ret = ilitek_ice_mode_write(idev->chip->reset_addr, idev->chip->reset_key, sizeof(u32));
+ilitek_ic.c:688:	u32 pc = 0, pc_addr = idev->chip->pc_counter_addr;
+ilitek_ic.c:689:	u32 latch = 0, latch_addr = idev->chip->pc_latch_addr;
+ilitek_ic.c:858:	idev->chip->core_ver = buf[1] << 16 | buf[2] << 8 | buf[3];
+ilitek_ic.c:928:	idev->chip->fw_ver = buf[1] << 24 | buf[2] << 16 | buf[3] << 8 | buf[4];
+ilitek_ic.c:939:	if (idev->info_from_hex && (idev->chip->core_ver >= CORE_VER_1410)) {
+ilitek_ic.c:949:	len = (idev->chip->core_ver >= CORE_VER_1430) ? 6 : len;
+ilitek_ic.c:967:		idev->trans_xy = (idev->chip->core_ver >= CORE_VER_1430) ? buf[5] : OFF;
+ilitek_ic.c:982:	if (idev->info_from_hex  && (idev->chip->core_ver >= CORE_VER_1410)) {
+ilitek_ic.c:1113:	u32 pid = idev->chip->pid;
+ilitek_ic.c:1121:		if (ilitek_ice_mode_read(idev->chip->pid_addr, &pid, sizeof(u32)) < 0)
+ilitek_ic.c:1124:	if (ilitek_ice_mode_read(idev->chip->otp_addr, &idev->chip->otp_id, sizeof(u32)) < 0)
+ilitek_ic.c:1126:	if (ilitek_ice_mode_read(idev->chip->ana_addr, &idev->chip->ana_id, sizeof(u32)) < 0)
+ilitek_ic.c:1129:	idev->chip->pid = pid;
+ilitek_ic.c:1130:	idev->chip->id = pid >> 16;
+ilitek_ic.c:1131:	idev->chip->type = (pid & 0x0000FF00) >> 8;
+ilitek_ic.c:1132:	idev->chip->ver = pid & 0xFF;
+ilitek_ic.c:1133:	idev->chip->otp_id &= 0xFF;
+ilitek_ic.c:1134:	idev->chip->ana_id &= 0xFF;
+ilitek_ic.c:1137:		idev->chip->pid,
+ilitek_ic.c:1138:		idev->chip->id,
+ilitek_ic.c:1139:		idev->chip->type,
+ilitek_ic.c:1140:		idev->chip->ver,
+ilitek_ic.c:1141:		idev->chip->otp_id,
+ilitek_ic.c:1142:		idev->chip->ana_id);
+ilitek_ic.c:1144:	ret = ilitek_tddi_ic_check_support(idev->chip->pid, idev->chip->id);
+ilitek_main.c:393:	else if ((idev->chip->core_ver >= CORE_VER_1430))

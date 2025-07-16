@@ -1,0 +1,1 @@
+obj-$(CONFIG_AI_BSP_TOUCHSCREEN_MTK_FOCALTECH_SPI_TOUCH) += focaltech_test_ft8057.o

@@ -1,0 +1,5 @@
+config ANT_CAM_MAX_NUMBER_OF_CAMERA
+    int "number of cameras"
+    default 3
+    help
+        show camera num.
